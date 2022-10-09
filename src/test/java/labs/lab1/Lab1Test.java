@@ -12,6 +12,7 @@ import java.util.Scanner;
 import org.junit.Test;
 
 import labs.lab1.*;
+import labs.lab2.Main;
 
 
 public class Lab1Test {
