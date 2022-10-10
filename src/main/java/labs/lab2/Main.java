@@ -69,16 +69,17 @@ public class Main {
 		int t = Integer.parseInt(in.next());
 
 		// n = times compounded/year
-		double n = Double.parseDouble(in.next());
+		int n = Integer.parseInt(in.next());
 
-		double total = Math.pow((1.0 + (r / n)), (n * t));
-		System.out.println(total);
+		double exponent = n * t;
+		double paranthesis = 1 + (r * 0.01)/n;
+		double total = p * Math.pow(paranthesis, exponent);
 
 		System.out.print("Enter principal amount: ");
 		System.out.print("Enter the annual rate of interest: ");
 		System.out.print("Enter the number of years the amount is invested: ");
 		System.out.print("Enter the number of times the interest is compounded per year: ");
-		System.out.print(String.format("$%.2f invested at ", p) + Double.toString(r) + "% for " + Integer.toString(t) + " years compounded " + Double.toString(n) + " times annually is $" + String.format("%.2f", total));
+		System.out.print(String.format("$%.2f invested at ", p) + Double.toString(r) + "% for " + Integer.toString(t) + " years compounded " + Integer.toString(n) + " times annually is $" + String.format("%.2f", total) + ".");
 	}
 	
 	
@@ -246,7 +247,39 @@ public class Main {
 	 * @return	the numeric grade
 	 */
 	public static double problem8_getNumericGrade(String letterGrade) {
-		return -1.0; // FIX ME
+
+		double base_grade = 0;
+		char letter = letterGrade.charAt(0);
+
+		if (letter == 'A' | letter =='a') {
+			base_grade = 4.0;
+		} else if (letter == 'B' | letter == 'b') {
+			base_grade = 3.0;
+		} else if (letter == 'C' | letter == 'c') {
+			base_grade = 2.0;
+		} else if (letter == 'D' | letter == 'd') {
+			base_grade = 1.0;
+		} else if (letter == 'F' | letter == 'f') {
+			base_grade = 0.0;
+		} else {
+			return -1.0;
+		}
+
+		if (letterGrade.length() > 1) {
+			char suffix = letterGrade.charAt(1);
+
+			if (suffix == '+') {
+				if (letter == 'A' | letter =='a') {
+					return base_grade;
+				}
+				base_grade += 0.3;
+			} else if (suffix == '-') {
+				base_grade -= 0.3;
+			}
+		} 
+
+		return base_grade;
+		
 	}
 
 	
@@ -258,7 +291,37 @@ public class Main {
 	 * @return	the letter grade
 	 */
 	public static String problem8_getLetterGrade(double numericGrade) {
-		return ""; // FIX ME
+
+		if (numericGrade ==4.0) {
+			return "A+";
+		} else if (3.85 <= numericGrade && numericGrade <= 4.0) {
+			return "A";
+		} else if (3.50 <= numericGrade && numericGrade < 3.85) {
+			return "A-";
+		} else if (3.15 <= numericGrade && numericGrade < 3.50) {
+			return "B+";
+		} else if (2.85 <= numericGrade && numericGrade < 3.15) {
+			return "B";
+		} else if (2.50 <= numericGrade && numericGrade < 2.85) {
+			return "B-";
+		} else if (2.15 <= numericGrade && numericGrade < 2.50) {
+			return "C+";
+		} else if (1.85 <= numericGrade && numericGrade < 2.15) {
+			return "C";
+		} else if (1.50 <= numericGrade && numericGrade < 1.85) {
+			return "C-";
+		} else if (1.15 <= numericGrade && numericGrade < 1.50) {
+			return "D+";
+		} else if (0.85 <= numericGrade && numericGrade < 1.15) {
+			return "D";
+		} else if (0.50 <= numericGrade && numericGrade < 0.85) {
+			return "D-";
+		} else if (0 <= numericGrade && numericGrade < 0.50) {
+			return "F";
+		} else {
+			return "Error"; // FIX ME
+		}
+		
 	}
 	
 	
@@ -272,6 +335,28 @@ public class Main {
 	 * @return	the changed string
 	 */
 	public static String problem10_withoutX2(String str) {
-		return ""; // FIX ME
+
+		if (str.length() > 1) {
+			if (str.charAt(0) == 'x' && str.charAt(1) == 'x') {
+				return str.substring(2, str.length());
+
+			} else if (str.charAt(0) == 'x') {
+					return str.substring(1, str.length());
+
+			} else if (str.charAt(1) == 'x') {
+				return str.charAt(0) + str.substring(2, str.length());
+
+			} else {
+				return str; // FIX ME
+			}
+		} else if (str.length() == 1) {
+			if (str.charAt(0) == 'x') {
+				return "";
+			} else {
+				return str;
+			}
+		} else {
+			return str;
+		}
 	}
 }
