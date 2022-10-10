@@ -15,6 +15,15 @@ public class Main {
 	 */
 	public static void problem2_printWithCommas(Scanner in) {
 		// FILL IN
+		String processNum = in.next();
+		int commaIndex = processNum.length()-3;
+
+		String backHalf = processNum.substring(commaIndex);
+		String frontHalf = processNum.substring(0, commaIndex);
+
+		System.out.print("Please enter an integer between 1000 and 999999: ");
+		System.out.print(frontHalf + "," + backHalf);
+
 	}
 	
 	
@@ -29,6 +38,14 @@ public class Main {
 	 */
 	public static void problem3_calculateTotal(Scanner in) {
 		// FILL IN
+		double price = Double.parseDouble(in.next());
+		int stickers = Integer.parseInt(in.next());
+
+		System.out.print(String.format("Enter price per sticker: "));
+		System.out.print(String.format("Enter the number of stickers: ", stickers));
+		double subtotal = stickers * price;
+		double total = subtotal + (subtotal * 0.10) + (stickers * 0.15);
+		System.out.print(String.format("Your total is: $%.2f", total));
 	}
 	
 	
@@ -42,7 +59,26 @@ public class Main {
 	 *           this: problemr_compoundInterest(new Scanner(System.in));
 	 */
 	public static void problem4_compoundInterest(Scanner in) {
-		// FILL IN
+		// p = principal
+		double p = Double.parseDouble(in.next());
+
+		// r = interest
+		double r = Double.parseDouble(in.next());
+
+		// t = years
+		int t = Integer.parseInt(in.next());
+
+		// n = times compounded/year
+		double n = Double.parseDouble(in.next());
+
+		double total = Math.pow((1.0 + (r / n)), (n * t));
+		System.out.println(total);
+
+		System.out.print("Enter principal amount: ");
+		System.out.print("Enter the annual rate of interest: ");
+		System.out.print("Enter the number of years the amount is invested: ");
+		System.out.print("Enter the number of times the interest is compounded per year: ");
+		System.out.print(String.format("$%.2f invested at ", p) + Double.toString(r) + "% for " + Integer.toString(t) + " years compounded " + Double.toString(n) + " times annually is $" + String.format("%.2f", total));
 	}
 	
 	
@@ -57,6 +93,27 @@ public class Main {
 	 */
 	public static void problem5_creditCardPayoff(Scanner in) {
 		// FILL IN
+		double balance = Double.parseDouble(in.next());
+		double APR = Double.parseDouble(in.next())*.01/365;
+		double monthlyPayment = Double.parseDouble(in.next());
+
+		double numeratorCalc = 1 + ((balance/monthlyPayment) * (1 - Math.pow((1+APR), 30)));
+		double numerator = Math.log(numeratorCalc);
+		double denominator = Math.log1p(APR);
+
+		double right = numerator/denominator;
+		double left = -1.0/30.0;
+
+		double months = right * left;
+
+		if (months%1 != 0) {
+			months = (int)Math.ceil(months);
+		} else {
+			months = (int) months;
+		}
+
+	 System.out.print(String.format("What is your balance? What is the APR on the card? What is the monthly payment you can make? It will take you %.0f months to pay off this card.", months));
+
 	}
 	
 	
@@ -70,6 +127,71 @@ public class Main {
 	 */
 	public static void problem6_troubleshootCarIssues(Scanner in) {
 		// FILL IN
+		String firstResponse = in.next();
+
+		System.out.print("Is the car silent when you turn the key? ");
+		if (firstResponse.charAt(0) == 'y'| firstResponse.charAt(0) == 'Y') {
+			System.out.print("Are the battery terminals corroded? ");
+
+			String secondResponse = in.next();
+
+			if (secondResponse.charAt(0) == 'y'| secondResponse.charAt(0) == 'Y') {
+				System.out.print("Clean terminals and try starting again");
+			} else if (secondResponse.charAt(0) == 'n' | secondResponse.charAt(0) == 'N') {
+				System.out.print("Replace cables and try again.");
+			} else {
+				System.out.print("Invalid input. Exiting.");
+			}
+
+		} else if (firstResponse.charAt(0) == 'n' | firstResponse.charAt(0) =='N') {
+
+			System.out.print("Does the car make a clicking noise? ");
+
+			String secondResponse = in.next();
+
+			if (secondResponse.charAt(0) == 'y' | secondResponse.charAt(0) =='Y') {
+				System.out.print("Replace the battery");
+			} else if (secondResponse.charAt(0) == 'n' | secondResponse.charAt(0) == 'N') {
+				System.out.print("Does the car crank up but fail to start? ");
+
+				String thirdResponse = in.next();
+
+				if (thirdResponse.charAt(0) == 'y' | thirdResponse.charAt(0) == 'Y') {
+					System.out.print("Check spark plug connections.");
+				} else if (thirdResponse.charAt(0) == 'n' | thirdResponse.charAt(0) == 'N') {
+					System.out.print("Does the engine start and then die? ");
+
+					String fourthResponse = in.next();
+
+					if (fourthResponse.charAt(0) == 'y' | fourthResponse.charAt(0) ==  'Y') {
+						System.out.print("Does your car have fuel injection? ");
+
+						String fifthResponse = in.next();
+
+						if (fifthResponse.charAt(0) == 'y' | fifthResponse.charAt(0) ==  'Y') {
+							System.out.print("Get it in for service.");
+						} else if (fifthResponse.charAt(0) == 'n' | fifthResponse.charAt(0) ==  'N') {
+							System.out.print("Check to ensure the choke is opening and closing.");
+						} else {
+							System.out.print("Invalid input. Exiting.");
+						}
+
+
+					} else if (fourthResponse.charAt(0) == 'n' | fourthResponse.charAt(0) ==  'N') {
+						System.out.print("Get it in for service.");
+						
+					} else {
+						System.out.print("Invalid input. Exiting.");
+					}
+				} else {
+					System.out.print("Invalid input. Exiting.");
+				}
+			} else {
+				System.out.print("Invalid input. Exiting.");
+			}
+		} else {
+			System.out.print("Invalid input. Exiting.");
+		}
 	}
 	
 	

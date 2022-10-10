@@ -6,7 +6,8 @@ package labs.lab2;
 public class Calculator {
 	
 	// ADD YOUR INSTANCE VARIABLES HERE
-	
+	private int num1;
+	private int num2;
 	/**
 	 * Constructor
 	 * 
@@ -15,6 +16,8 @@ public class Calculator {
 	 */
 	public Calculator(int num1, int num2) {
 		// FILL IN
+		this.num1 = num1;
+		this.num2 = num2;
 	}
 	
 	
@@ -24,7 +27,7 @@ public class Calculator {
 	 * @return the sum of the two numbers
 	 */
 	public int getSum() {
-		return -1; // FIX ME
+		return num1 + num2; // FIX ME
 	}
 	
 	
@@ -34,7 +37,7 @@ public class Calculator {
 	 * @return the difference
 	 */
 	public int getDifference() {
-		return -1; // FIX ME
+		return num1 - num2; // FIX ME
 	}
 	
 	
@@ -44,7 +47,7 @@ public class Calculator {
 	 * @return the product
 	 */
 	public int getProduct() {
-		return -1; // FIX ME
+		return num1 * num2; // FIX ME
 	}
 	
 	
@@ -54,7 +57,7 @@ public class Calculator {
 	 * @return the average
 	 */
 	public double getAverage() {
-		return -1.0; // FIX ME
+		return (double)(num1+num2)/2; // FIX ME
 	}
 	
 	
@@ -64,7 +67,8 @@ public class Calculator {
 	 * @return the distance
 	 */
 	public int getDistance() {
-		return -1; // FIX ME
+		int distance = num1 - num2;
+		return distance >= 0 ? distance : distance * -1; // FIX ME
 	}
 	
 	
@@ -74,9 +78,9 @@ public class Calculator {
 	 * @return the maximum
 	 */
 	public int getMax() {
-		return -1; // FIX ME
+		return (num1 < num2 ? num2 : num1); // FIX ME
 	}
-	
+	  
 	
 	/**
 	 * Returns the minimum of the two numbers
@@ -84,6 +88,6 @@ public class Calculator {
 	 * @return the minimum
 	 */
 	public int getMin() {
-		return -1; // FIX ME
+		return (num1 < num2 ? num1 : num2); // FIX ME
 	}
 }

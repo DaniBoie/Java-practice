@@ -75,8 +75,8 @@ public class Lab2Test {
 		System.setOut(new PrintStream(output));
 
 		Main.problem2_printWithCommas(new Scanner(System.in));
-		String result = output.toString();
-		assertEquals("Please enter an integer between 1000 and 999999: 53,882", result);
+		String result = output.toString();		assertEquals("Please enter an integer between 1000 and 999999: 53,882", result);
+
 
 		
 		// Test case 2:
@@ -165,8 +165,8 @@ public class Lab2Test {
 		System.setOut(new PrintStream(output));
 
 		Main.problem4_compoundInterest(new Scanner(System.in));
-		String result = output.toString();
-		assertEquals("Enter principal amount: " + "Enter the annual rate of interest: " + 
+		String result = output.toString();		assertEquals("Enter principal amount: " + "Enter the annual rate of interest: " + 
+
 				"Enter the number of years the amount is invested: " + 
 				"Enter the number of times the interest is compounded per year: " +
 				"$1500.00 invested at 4.3% for 6 years compounded 4 times annually is $1938.84.", result); 
