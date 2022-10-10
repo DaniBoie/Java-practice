@@ -210,7 +210,32 @@ public class Main {
 	 * @return	a string describing its strength
 	 */
 	public static String problem7_assessPasswordStrength(String password) {
-		return ""; // FIX ME
+		
+		if (password.length() < 8) {
+			if (password.matches("[0-9]+")) {
+				return "very weak";
+			} else if (password.matches("[a-zA-Z]+")) {
+				return "weak";
+			} else {
+				return "medium";
+			}
+		} else if (password.length() >= 8) {
+			if (password.matches("[0-9 ]+")) {
+				return "medium";
+			}
+			if (password.matches("[a-zA-Z ]+")) {
+				return "medium";
+			}
+
+			if (password.matches("[0-9a-zA-Z]+")) {
+				return "strong";
+			} else if (password.matches("[0-9a-zA-Z!@#&()[{ }]:;',?/*~$^+=<>-]+")) {
+				return "very strong";
+			} else {
+				return "medium";
+			}
+		}
+		return "medium";
 	}
 	
 	
