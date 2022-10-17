@@ -125,6 +125,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("RAN!");
+		System.out.println("RAN!".charAt("RAN!".length()-1));
+
 	}
 }
