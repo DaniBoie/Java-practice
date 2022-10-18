@@ -47,7 +47,41 @@ public class Main {
 	 * @return the length of the largest block in the string
 	 */
 	public static int problem2_maxBlock(String str) {
-		return -1; // FIX ME
+		
+		int prev_max = 0;
+		int max = 0;
+		char prev = 0;
+
+		for (int i = 0; i <= str.length() - 1; i++) {
+
+			if (prev == str.charAt(i)) {
+
+				if (max == 0) {
+					max += 2;
+				} else {
+					max += 1;
+				}
+			} else {
+				if (max > prev_max) {
+					prev_max = max;
+				}
+				
+				max = 0;
+			}
+
+			prev = str.charAt(i);
+		}
+
+		if ((prev_max == 0 && max == 0) && str.length() != 0) {
+			return 1;
+		} else {
+			 if (max > prev_max) {
+				return max;
+			 } else {
+				return prev_max;
+			 }
+		}
+
 	}
 
 
@@ -60,7 +94,33 @@ public class Main {
 	 * @return whether or not all E's in the string are happy
 	 */
 	public static boolean problem3_EHappy(String str) {
-		return false; // FIX ME
+		// int spaces = 0;
+		boolean seenOnce = false; 
+		boolean seenMore = false;
+		boolean valid = true;
+
+		for (int i = 0; i <= str.length() - 1; i++) {
+			if (str.charAt(i) == 'E') {
+				if (!seenOnce) {
+					seenOnce = true;
+				} else {
+					seenMore = true;
+				}
+
+			} else {
+				// if solo E
+				if (seenOnce && !seenMore) {
+					valid = false;
+				}
+				seenOnce = false;
+				seenMore = false;
+			}
+		}
+
+		if (seenOnce && !seenMore) {
+			return false;
+		}
+		return valid; // FIX ME
 	}
 	
 	
@@ -74,7 +134,37 @@ public class Main {
 	 * @return	the minimum number of twists to unlock the lock
 	 */
 	public static int problem4_getNumTwists(int starting, int target) {
-		return -1; // FIX ME
+
+		int twists = 0;
+
+		for (int i = 0; i <= 3; i++) {
+			int startingMod = starting % 10;
+			int targetMod = target % 10;
+
+			int loosey;
+			int tighty;
+
+			if (startingMod > targetMod) {
+				loosey = startingMod - targetMod;
+				tighty = (10 + targetMod) - startingMod;
+				
+			} else {
+				loosey = targetMod - startingMod;
+				tighty = (10 + startingMod) - targetMod;
+			}
+		
+
+			if (loosey < tighty) {
+				twists += loosey;
+			} else {
+				twists += tighty;
+			}
+
+			starting = starting / 10;
+			target = target / 10;
+		}
+
+		return twists; // FIX ME
 	}
 	
 	
@@ -89,6 +179,28 @@ public class Main {
 	 */
 	public static void problem5_officeCrowdControl(Scanner in, int capacity) {
 		// FILL IN
+		int people = 0;
+
+		do {
+			int movement = in.nextInt();
+
+			System.out.print("People entering or leaving: ");
+		
+			if (movement > 0) {
+				if (people + movement <= capacity) {
+					people += movement;
+				}
+			} else {
+				if (people + movement >= 0) {
+					people += movement;
+				}
+			}
+
+			System.out.print("People in office: " + people + " | ");
+
+		} while (people < capacity);
+
+		System.out.print("Office is full");
 	}
 	
 	
