@@ -214,7 +214,22 @@ public class Main {
 	 * @return	the rearranged array with all even numbers coming before all odd numbers
 	 */
 	public static int[] problem6_evenOdd(int[] nums) {
-		return null; // FIX ME
+
+		int[] newArr = new int[nums.length];
+		int newIndex = 0;
+		int oddIndex = 1;
+
+		for (int i = 0; i <= nums.length - 1; i++) {
+			if (nums[i] % 2 == 0) {
+				newArr[newIndex] = nums[i];
+				newIndex += 1;
+			} else {
+				newArr[nums.length - oddIndex] = nums[i];
+				oddIndex += 1;
+			}
+		}
+
+		return newArr; // FIX ME
 	}
 	
 	
@@ -230,6 +245,19 @@ public class Main {
 	 * 
 	 */
 	public static int[] problem7_after4(int[] nums) {
-		return new int[] {}; // FIX ME
+
+		int[] newArr = new int[nums.length];
+		int newIndex = 0;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 4) {
+				newArr = new int[nums.length - i - 1];
+				newIndex = 0;
+			} else {
+				newArr[newIndex] = nums[i];
+				newIndex += 1;
+			}
+		}
+		return newArr; // FIX ME
 	}
 }
