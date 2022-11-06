@@ -162,32 +162,32 @@ public class Lab6Test {
 	}
 
 
-// 	@Test
-// 	public void problem5() {
-// 		Bank bank1 = new Bank("res/accounts1.dat");
-// 		assertEquals(new BankAccount(2, 300.0), bank1.getLowestBalanceAccount());
+	@Test
+	public void problem5() {
+		Bank bank1 = new Bank("res/accounts1.dat");
+		assertEquals(new BankAccount(2, 300.0), bank1.getLowestBalanceAccount());
 		
-// 		Bank bank2 = new Bank("res/accounts2.dat");
-// 		assertEquals(new BankAccount(4, 4), bank2.getLowestBalanceAccount());
+		Bank bank2 = new Bank("res/accounts2.dat");
+		assertEquals(new BankAccount(4, 4), bank2.getLowestBalanceAccount());
 		
-// 		Bank bank3 = new Bank("res/accounts3.dat");
-// 		assertEquals(new BankAccount(9098, 0), bank3.getLowestBalanceAccount());
+		Bank bank3 = new Bank("res/accounts3.dat");
+		assertEquals(new BankAccount(9098, 0), bank3.getLowestBalanceAccount());
 		
-// 		Bank bank4 = new Bank("res/accounts4.dat");
-// 		assertEquals(new BankAccount(10, 3), bank4.getLowestBalanceAccount());
+		Bank bank4 = new Bank("res/accounts4.dat");
+		assertEquals(new BankAccount(10, 3), bank4.getLowestBalanceAccount());
 		
-// 		Bank bank5 = new Bank("res/blank.txt");
-// 		assertNull(bank5.getLowestBalanceAccount());
+		Bank bank5 = new Bank("res/blank.txt");
+		assertNull(bank5.getLowestBalanceAccount());
 
-// 		// test exception message is printed out:
-// 		String nonExistentFileName = "res/nothing.txt";
-// 		ByteArrayOutputStream output = new ByteArrayOutputStream();
-// 		System.setOut(new PrintStream(output));
-// 		Bank bank6 = new Bank(nonExistentFileName);
+		// test exception message is printed out:
+		String nonExistentFileName = "res/nothing.txt";
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
+		Bank bank6 = new Bank(nonExistentFileName);
 
-// 		String result = output.toString();
-// 		assertEquals("File: " + nonExistentFileName + " not found", result);
-// 	}
+		String result = output.toString();
+		assertEquals("File: " + nonExistentFileName + " not found", result);
+	}
 	
 	
 // 	@Test

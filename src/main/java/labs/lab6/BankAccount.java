@@ -5,6 +5,8 @@ package labs.lab6;
  */
 public class BankAccount {
 	// ADD YOUR INSTANCE VARIABLES HERE
+	private int accountNumber;
+	private double initialBalance;
 
 	/**
 	 * Constructs a bank account with a given balance.
@@ -12,7 +14,8 @@ public class BankAccount {
 	 * @param initialBalance the initial balance
 	 */
 	public BankAccount(int accountNumber, double initialBalance) {
-		// FILL IN
+		this.accountNumber = accountNumber;
+		this.initialBalance = initialBalance;
 	}
 
 	/**
@@ -21,11 +24,12 @@ public class BankAccount {
 	 * @return the current balance
 	 */
 	public double getBalance() {
-		return -1.0; // FIX ME
+		return initialBalance; // FIX ME
 	}
 	
 	public void setBalance(double balance) {
 		// FILL IN
+		initialBalance = balance;
 	}
 
 	/**
@@ -34,7 +38,7 @@ public class BankAccount {
 	 * @return the account number
 	 */
 	public int getAccountNumber() {
-		return -1; // FIX ME
+		return accountNumber; // FIX ME
 	}
 	
 	
@@ -44,7 +48,7 @@ public class BankAccount {
 	 */
 	@Override
 	public String toString() {
-		return ""; // FIX ME
+		return accountNumber + "; " + initialBalance; // FIX ME
 	}
 	
 	
@@ -54,6 +58,10 @@ public class BankAccount {
 	 */
 	@Override
 	public boolean equals(Object otherObj) {
+		BankAccount otherAccount = (BankAccount) otherObj;
+		if (accountNumber == otherAccount.getAccountNumber() && initialBalance == otherAccount.getBalance()) {
+			return true;
+		}
 		return false; // FIX ME
 	}
 }

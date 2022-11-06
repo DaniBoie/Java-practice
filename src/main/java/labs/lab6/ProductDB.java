@@ -17,7 +17,6 @@ public class ProductDB {
 	 * @param productsFileName name of file with product data
 	 */
 	public ProductDB(String productsFileName) {
-		// FILL IN
 		dbFile = productsFileName;
 		try (Scanner input = new Scanner(new File(productsFileName))) {
 			
@@ -32,12 +31,8 @@ public class ProductDB {
 				products.add(newProduct);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.print("File: " + dbFile + " not found");
 		}
-		//The name of the product ;
-		//The price of the product ;
-		//The quantity of product ;
 	}
 
 
@@ -55,7 +50,7 @@ public class ProductDB {
 				return product;
 			}
 		}
-		return null; // FIX ME
+		return null;
 	}
 
 
@@ -72,7 +67,6 @@ public class ProductDB {
 		if (findProduct(name) == null) {
 			Product newProduct = new Product(name, price, quantity);
 			products.add(newProduct);
-			// for product rewrite text file.
 		}
 
 		try (PrintWriter out = new PrintWriter(dbFile)) {
@@ -80,12 +74,7 @@ public class ProductDB {
 				out.print(product.getName() + ";" + String.format("%.2f", product.getPrice()) + ";" + (int) product.getQuantity() + "\n");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.print("File: " + dbFile + " not found");
 		}
-		
-		
-		
-		// FILL IN
 	}
 }
