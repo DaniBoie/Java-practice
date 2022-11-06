@@ -71,95 +71,95 @@ public class Lab6Test {
 		assertEquals("File: " + nonExistentFileName + " not found", result);
 	}
 
-// 	@Test
-// 	public void problem3() {
+	@Test
+	public void problem3() {
 
-// 		// success operations:
-// 		Student george = new Student("George Glass", 1234);
-// 		assertEquals(1234, george.getID());
+		// success operations:
+		Student george = new Student("George Glass", 1234);
+		assertEquals(1234, george.getID());
 
-// 		george.addClass("ICS 45J");
-// 		george.addClass("Ballet I");
-// 		george.addClass("Chem 51C");
-// 		george.dropClass("Ballet I");
+		george.addClass("ICS 45J");
+		george.addClass("Ballet I");
+		george.addClass("Chem 51C");
+		george.dropClass("Ballet I");
 
-// 		// exception operations:
+		// exception operations:
 
-// 		// assigning negative ID:
-// 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-// 			Student robert = new Student("Robert Navarro", -1234);
-// 		});
-// 		String expectedMessage = "ID cannot be negative";
-// 		String actualMessage = exception.getMessage();
-// 		assertTrue(actualMessage.contains(expectedMessage));
+		// assigning negative ID:
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+			Student robert = new Student("Robert Navarro", -1234);
+		});
+		String expectedMessage = "ID cannot be negative";
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 
-// 		// dropping a class that the student doesn't have:
-// 		exception = assertThrows(IllegalArgumentException.class, () -> {
-// 			george.dropClass("ICS 10");
-// 		});
-// 		expectedMessage = "Cannot drop class ICS 10 because student is not enrolled in it";
-// 		actualMessage = exception.getMessage();
-// 		assertTrue(actualMessage.contains(expectedMessage));
-// 		List<String> expClasses = Arrays.asList("Chem 51C", "ICS 45J");
-// //		assertIterableEquals(expClasses, george.getClasses());
-// 		assertEquals(expClasses, george.getClasses());
-// 	}
+		// dropping a class that the student doesn't have:
+		exception = assertThrows(IllegalArgumentException.class, () -> {
+			george.dropClass("ICS 10");
+		});
+		expectedMessage = "Cannot drop class ICS 10 because student is not enrolled in it";
+		actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
+		List<String> expClasses = Arrays.asList("Chem 51C", "ICS 45J");
+//		assertIterableEquals(expClasses, george.getClasses());
+		assertEquals(expClasses, george.getClasses());
+	}
 
 
-// 	@Test
-// 	public void problem4() throws IOException {
-// 		String prodFileName = "res/products.txt";
-// 		ProductDB db = new ProductDB(prodFileName);
+	@Test
+	public void problem4() throws IOException {
+		String prodFileName = "res/products.txt";
+		ProductDB db = new ProductDB(prodFileName);
 
-// 		assertEquals(new Product("Blue plaid bow tie collar", 29.95, 6), db.findProduct("Blue plaid bow tie collar"));
-// 		assertEquals(new Product("Red bandana", 3.99, 16), db.findProduct("Red bandana"));
-// 		assertEquals(new Product("White porcelain food and water bowl set", 23.00, 8),
-// 				db.findProduct("White porcelain food and water bowl set"));
-// 		assertEquals(new Product("XL tan fluffy dog bed", 75.25, 2), db.findProduct("XL tan fluffy dog bed"));
-// 		assertNull(db.findProduct("stuffed sloth"));
-// 		db.addProduct("stuffed sloth", 9.99, 4);
-// 		assertEquals(new Product("stuffed sloth", 9.99, 4), db.findProduct("stuffed sloth"));
+		assertEquals(new Product("Blue plaid bow tie collar", 29.95, 6), db.findProduct("Blue plaid bow tie collar"));
+		assertEquals(new Product("Red bandana", 3.99, 16), db.findProduct("Red bandana"));
+		assertEquals(new Product("White porcelain food and water bowl set", 23.00, 8),
+				db.findProduct("White porcelain food and water bowl set"));
+		assertEquals(new Product("XL tan fluffy dog bed", 75.25, 2), db.findProduct("XL tan fluffy dog bed"));
+		assertNull(db.findProduct("stuffed sloth"));
+		db.addProduct("stuffed sloth", 9.99, 4);
+		assertEquals(new Product("stuffed sloth", 9.99, 4), db.findProduct("stuffed sloth"));
 
-// 		// check that file was updated:
-// 		List<String> linesList = Arrays.asList("Blue plaid bow tie collar;29.95;6", "Red bandana;3.99;16",
-// 				"White porcelain food and water bowl set;23.00;8", "XL tan fluffy dog bed;75.25;2",
-// 				"stuffed sloth;9.99;4");
-// //		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
-// 		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		// check that file was updated:
+		List<String> linesList = Arrays.asList("Blue plaid bow tie collar;29.95;6", "Red bandana;3.99;16",
+				"White porcelain food and water bowl set;23.00;8", "XL tan fluffy dog bed;75.25;2",
+				"stuffed sloth;9.99;4");
+//		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
 
-// 		assertNull(db.findProduct("stuffed puppy"));
-// 		db.addProduct("stuffed puppy", 19.99, 41);
-// 		assertEquals(new Product("stuffed puppy", 19.99, 41), db.findProduct("stuffed puppy"));
+		assertNull(db.findProduct("stuffed puppy"));
+		db.addProduct("stuffed puppy", 19.99, 41);
+		assertEquals(new Product("stuffed puppy", 19.99, 41), db.findProduct("stuffed puppy"));
 
-// 		// check that file was updated:
-// 		linesList = Arrays.asList("Blue plaid bow tie collar;29.95;6", "Red bandana;3.99;16",
-// 				"White porcelain food and water bowl set;23.00;8", "XL tan fluffy dog bed;75.25;2",
-// 				"stuffed sloth;9.99;4", "stuffed puppy;19.99;41");
-// //		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
-// 		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		// check that file was updated:
+		linesList = Arrays.asList("Blue plaid bow tie collar;29.95;6", "Red bandana;3.99;16",
+				"White porcelain food and water bowl set;23.00;8", "XL tan fluffy dog bed;75.25;2",
+				"stuffed sloth;9.99;4", "stuffed puppy;19.99;41");
+//		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
 
-// 		// check that previous products are still there:
-// 		assertEquals(new Product("Red bandana", 3.99, 16), db.findProduct("Red bandana"));
-// 		assertEquals(new Product("White porcelain food and water bowl set", 23.00, 8),
-// 				db.findProduct("White porcelain food and water bowl set"));
+		// check that previous products are still there:
+		assertEquals(new Product("Red bandana", 3.99, 16), db.findProduct("Red bandana"));
+		assertEquals(new Product("White porcelain food and water bowl set", 23.00, 8),
+				db.findProduct("White porcelain food and water bowl set"));
 
-// 		// check that a product with the same name as existing product isn't added:
-// 		db.addProduct("stuffed sloth", 0.99, 1);
-// 		assertEquals(new Product("stuffed sloth", 9.99, 4), db.findProduct("stuffed sloth"));
+		// check that a product with the same name as existing product isn't added:
+		db.addProduct("stuffed sloth", 0.99, 1);
+		assertEquals(new Product("stuffed sloth", 9.99, 4), db.findProduct("stuffed sloth"));
 
-// 		// check that file is unchanged:
-// //		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
-// 		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		// check that file is unchanged:
+//		assertLinesMatch(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
+		assertEquals(linesList, java.nio.file.Files.readAllLines(new File(prodFileName).toPath()));
 
-// 		// test exception message is printed out:
-// 		String nonExistentFileName = "res/nothing.txt";
-// 		ByteArrayOutputStream output = new ByteArrayOutputStream();
-// 		System.setOut(new PrintStream(output));
-// 		ProductDB db2 = new ProductDB(nonExistentFileName);
+		// test exception message is printed out:
+		String nonExistentFileName = "res/nothing.txt";
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
+		ProductDB db2 = new ProductDB(nonExistentFileName);
 
-// 		String result = output.toString();
-// 		assertEquals("File: " + nonExistentFileName + " not found", result);
-// 	}
+		String result = output.toString();
+		assertEquals("File: " + nonExistentFileName + " not found", result);
+	}
 
 
 // 	@Test
