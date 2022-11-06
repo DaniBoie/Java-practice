@@ -23,13 +23,11 @@ public class TextImprover {
 
 			while (input.hasNextLine()) {
 				String key = input.next();
-				// System.out.println(key);
 				String value = input.next();
 				System.out.println(key + value);
 				wordMap.put(key, value);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e);
 		}
 	}
@@ -53,38 +51,78 @@ public class TextImprover {
 
 					for (String word : words) {
 						String newWord = "";
-						boolean punctuated = false;
-						char punctuation = 0;
-						char lastLetter = word.charAt(word.length() - 1);
+						String punctuationAfter = "";
+						String punctuationBefore = "";
+						boolean punctuatedAfter = false;
+						boolean punctuatedBefore = false;
+						boolean foundLetter = false;
+						boolean ignore = false;
 
-						if (!Character.isLetter(lastLetter)) {
-							punctuated = true;
-							punctuation = lastLetter;
-							newWord = word.substring(0, word.length() - 1);
+						for (int i = 0; i < word.length(); i++) {
+							char letter = word.charAt(i);
+							if (Character.isLetter(letter)) {
+								if (punctuatedAfter) {
+									ignore = true;
+								}
+								foundLetter = true;
+								newWord += letter;
+							} else {
+								if (!foundLetter) {
+									punctuatedBefore = true;
+									punctuationBefore += letter;
+								} else {
+									punctuatedAfter = true;
+									punctuationAfter += letter;
+								}
+								
+							}
+						}	
+
+						if (!ignore) {
+							
+							if (wordMap.containsKey(newWord)) {
+
+								newWord = wordMap.get(newWord);
+							
+							} else if (wordMap.containsKey(newWord.toLowerCase())) {
+								String lowercaseWord = wordMap.get(newWord.toLowerCase());
+
+
+								if (Character.isUpperCase(newWord.charAt(0))) {
+									if (newWord.length() == 1) {
+										newWord = lowercaseWord.toUpperCase();
+									} else {
+
+										if (Character.isUpperCase(newWord.charAt(1))) {
+											newWord = lowercaseWord.toUpperCase();
+										} else {
+											newWord = Character.toUpperCase(lowercaseWord.charAt(0)) + lowercaseWord.substring(1);
+										}
+
+									}
+
+								}
+
+							}
+
+							if (punctuatedBefore) {
+								newWord = punctuationBefore + newWord;
+							}
+
+							if (punctuatedAfter) {
+								newWord += punctuationAfter;
+							}
+
 						} else {
 							newWord = word;
-						}
-
-						if (wordMap.containsKey(newWord)) {
-							newWord = wordMap.get(newWord);
-						} else if (wordMap.containsKey(newWord.toLowerCase())) {
-							String caseWord = wordMap.get(newWord.toLowerCase());
-							if (Character.isUpperCase(newWord.charAt(1))) {
-								
-								newWord = caseWord.toUpperCase();
-							} else {
-								newWord = Character.toUpperCase(caseWord.charAt(0)) + caseWord.substring(1);
-							}
-						}
-
-						if (punctuated) {
-							newWord += punctuation;
 						}
 
 						System.out.println(newWord);
 						newFile += newWord + " ";
 					
 					}
+					newFile += '\n';
+				} else {
 					newFile += '\n';
 				}
 
@@ -95,8 +133,7 @@ public class TextImprover {
 			out.close();
 
 		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
+			System.out.print("File: " + fileName +" not found");
 		}
 	}
 }
