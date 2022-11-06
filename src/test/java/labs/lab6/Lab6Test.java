@@ -190,74 +190,74 @@ public class Lab6Test {
 	}
 	
 	
-// 	@Test
-// 	public void problems6through10() {
-// 		MessagingSystem system = new MessagingSystem();
-// 		system.deliver("Emily", "Robert", "Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n");
-// 		system.deliver("Emily", "45J Student", "Hey 45J Student,\n"
-// 				+ "You are doing great!\n"
-// 				+ "Keep up the good work.\n"
-// 				+ "-Prof. Navarro\n");
-// 		assertEquals(" -----\n"
-// 				+ "From: Emily\n"
-// 				+ "To: 45J Student\n"
-// 				+ "Hey 45J Student,\n"
-// 				+ "You are doing great!\n"
-// 				+ "Keep up the good work.\n"
-// 				+ "-Prof. Navarro\n", system.getMessages("45J Student"));
-// 		system.deliver("45J Student", "Robert", "Robert, you are the best dog ever!!!\n");
-// 		assertEquals(" -----\n"
-// 				+ "From: Emily\n"
-// 				+ "To: Robert\n"
-// 				+ "Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n"
-// 				+ " -----\n"
-// 				+ "From: 45J Student\n"
-// 				+ "To: Robert\n"
-// 				+ "Robert, you are the best dog ever!!!\n", system.getMessages("Robert"));
+	@Test
+	public void problems6through10() {
+		MessagingSystem system = new MessagingSystem();
+		system.deliver("Emily", "Robert", "Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n");
+		system.deliver("Emily", "45J Student", "Hey 45J Student,\n"
+				+ "You are doing great!\n"
+				+ "Keep up the good work.\n"
+				+ "-Prof. Navarro\n");
+		assertEquals(" -----\n"
+				+ "From: Emily\n"
+				+ "To: 45J Student\n"
+				+ "Hey 45J Student,\n"
+				+ "You are doing great!\n"
+				+ "Keep up the good work.\n"
+				+ "-Prof. Navarro\n", system.getMessages("45J Student"));
+		system.deliver("45J Student", "Robert", "Robert, you are the best dog ever!!!\n");
+		assertEquals(" -----\n"
+				+ "From: Emily\n"
+				+ "To: Robert\n"
+				+ "Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n"
+				+ " -----\n"
+				+ "From: 45J Student\n"
+				+ "To: Robert\n"
+				+ "Robert, you are the best dog ever!!!\n", system.getMessages("Robert"));
 
-// 		Message message = new Message("Emily","Robert","Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n");
-// 		assertEquals("Robert",message.getRecipient());
-// 		assertEquals("From: Emily\n"
-// 				+ "To: Robert\n"
-// 				+ "Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n",message.toString());
+		Message message = new Message("Emily","Robert","Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n");
+		assertEquals("Robert",message.getRecipient());
+		assertEquals("From: Emily\n"
+				+ "To: Robert\n"
+				+ "Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n",message.toString());
 		
-// 		Mailbox mailbox = new Mailbox("Robert");
-// 		assertEquals("Robert", mailbox.getUser());
-// 		Message message1 = new Message("Emily","Robert","Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n");
-// 		Message message2 = new Message("45J Student","Robert","Robert, you are the best dog ever!!!\n");
-// 		mailbox.addMessage(message1);
-// 		mailbox.addMessage(message2);
-// 		assertEquals(" -----\n"
-// 				+ "From: Emily\n"
-// 				+ "To: Robert\n"
-// 				+ "Hi Robert,\n"
-// 				+ "You are snoring too loud!\n"
-// 				+ "I love oyu anyway.\n"
-// 				+ "Love,\n"
-// 				+ "Mom\n"
-// 				+ " -----\n"
-// 				+ "From: 45J Student\n"
-// 				+ "To: Robert\n"
-// 				+ "Robert, you are the best dog ever!!!\n",mailbox.getAllMessages());
-// 	}
+		Mailbox mailbox = new Mailbox("Robert");
+		assertEquals("Robert", mailbox.getUser());
+		Message message1 = new Message("Emily","Robert","Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n");
+		Message message2 = new Message("45J Student","Robert","Robert, you are the best dog ever!!!\n");
+		mailbox.addMessage(message1);
+		mailbox.addMessage(message2);
+		assertEquals(" -----\n"
+				+ "From: Emily\n"
+				+ "To: Robert\n"
+				+ "Hi Robert,\n"
+				+ "You are snoring too loud!\n"
+				+ "I love oyu anyway.\n"
+				+ "Love,\n"
+				+ "Mom\n"
+				+ " -----\n"
+				+ "From: 45J Student\n"
+				+ "To: Robert\n"
+				+ "Robert, you are the best dog ever!!!\n",mailbox.getAllMessages());
+	}
 }
