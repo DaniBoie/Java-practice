@@ -65,76 +65,76 @@ public class Lab7Test {
 	}
 
 
-	// @Test
-	// public void problems4Through5() throws IOException {
-	// 	// names1.txt:
-	// 	NameSorter ns = new NameSorter("res/names1.txt");
-	// 	ns.sortNames();
-	// 	;
-	// 	List<String> linesList = Arrays.asList("Johnson, Jim", "Jones, Aaron", "Jones, Chris", "Ling, Mai",
-	// 			"Swift, Geoffrey", "Xiong, Fong", "Zarnecki, Sabrina");
-	// 	assertEquals(linesList, java.nio.file.Files.readAllLines(new File("res/names1.txt").toPath()));
+	@Test
+	public void problems4Through5() throws IOException {
+		// names1.txt:
+		NameSorter ns = new NameSorter("res/names1.txt");
+		ns.sortNames();
+		;
+		List<String> linesList = Arrays.asList("Johnson, Jim", "Jones, Aaron", "Jones, Chris", "Ling, Mai",
+				"Swift, Geoffrey", "Xiong, Fong", "Zarnecki, Sabrina");
+		assertEquals(linesList, java.nio.file.Files.readAllLines(new File("res/names1.txt").toPath()));
 
-	// 	// names1.txt:
-	// 	ns = new NameSorter("res/names2.txt");
-	// 	ns.sortNames();
-	// 	;
-	// 	linesList = Arrays.asList("ARNOLD, ALAN", "glass, george", "Johnson, Jim", "Jones, Aaron", "Jones, Chris",
-	// 			"Ling, Mai", "Ling, Mai", "Swift, Geoffrey", "Xiong, Fong", "Zarnecki, Sabrina");
-	// 	assertEquals(linesList, java.nio.file.Files.readAllLines(new File("res/names2.txt").toPath()));
-	// }
-
-
-	// @Test
-	// public void problem6() {
-	// 	// test1.txt:
-	// 	WordCounter wc1 = new WordCounter("res/test1.txt");
-	// 	assertEquals(37, wc1.getNumUniqueWords());
-	// 	assertEquals(50, wc1.getNumWords());
-	// 	ArrayList<String> result = new ArrayList<String>(Arrays.asList("a", "across", "actually", "alice", "and", "at",
-	// 			"before", "either", "feet", "flashed", "for", "had", "her", "hurried", "it", "its", "looked", "mind",
-	// 			"never", "of", "on", "or", "out", "rabbit", "seen", "she", "started", "take", "that", "the", "then",
-	// 			"to", "took", "waistcoatpocket", "watch", "when", "with"));
-	// 	assertEquals(result, wc1.getUniqueWords());
-
-	// 	// test2.txt:
-	// 	WordCounter wc2 = new WordCounter("res/test2.txt");
-	// 	assertEquals(23, wc2.getNumUniqueWords());
-	// 	assertEquals(26, wc2.getNumWords());
-	// 	result = new ArrayList<String>(Arrays.asList("a", "as", "but", "disappointment", "down", "empty", "from",
-	// 			"great", "her", "it", "jar", "labelled", "marmalade", "of", "one", "orange", "passed", "she", "shelves",
-	// 			"the", "to", "took", "was"));
-	// 	assertEquals(result, wc2.getUniqueWords());
-
-	// 	// text3.txt:
-	// 	WordCounter wc3 = new WordCounter("res/test3.txt");
-	// 	assertEquals(28, wc3.getNumUniqueWords());
-	// 	assertEquals(33, wc3.getNumWords());
-	// 	result = new ArrayList<String>(Arrays.asList("12", "again", "alice", "began", "cat", "dinah", "dinahll", "do",
-	// 			"down", "else", "i", "me", "miss", "much", "nothing", "old", "should", "so", "soon", "talking", "the",
-	// 			"there", "think", "to", "tonight", "very", "was", "years"));
-	// 	assertEquals(result, wc3.getUniqueWords());
-	// }
+		// names1.txt:
+		ns = new NameSorter("res/names2.txt");
+		ns.sortNames();
+		;
+		linesList = Arrays.asList("ARNOLD, ALAN", "glass, george", "Johnson, Jim", "Jones, Aaron", "Jones, Chris",
+				"Ling, Mai", "Ling, Mai", "Swift, Geoffrey", "Xiong, Fong", "Zarnecki, Sabrina");
+		assertEquals(linesList, java.nio.file.Files.readAllLines(new File("res/names2.txt").toPath()));
+	}
 
 
-	// @Test
-	// public void problem7() {
-	// 	Driveway driveway = new Driveway();
-	// 	assertEquals(Arrays.asList("Driveway: 1", "Street: "), driveway.add(1));
-	// 	assertEquals(Arrays.asList("Driveway: 1 2", "Street: "), driveway.add(2));
-	// 	assertEquals(Arrays.asList("Driveway: 1 2 3", "Street: "), driveway.add(3));
-	// 	assertEquals(Arrays.asList("That car is already in the driveway."), driveway.add(3));
-	// 	assertEquals(Arrays.asList("Driveway: 1 2 3 4", "Street: "), driveway.add(4));
-	// 	assertEquals(Arrays.asList("Driveway: 1 2 3", "Street: 4", "Driveway: 1 2", "Street: 4 3", "Driveway: 1 3",
-	// 			"Street: 4", "Driveway: 1 3 4", "Street: "), driveway.remove(2));
-	// 	assertEquals(Arrays.asList("Driveway: 1 3", "Street: "), driveway.remove(4));
-	// 	assertEquals(Arrays.asList("Driveway: 1 3 5", "Street: "), driveway.add(5));
-	// 	assertEquals(Arrays.asList("Driveway: 1 3 5 6", "Street: "), driveway.add(6));
-	// 	assertEquals(Arrays.asList("Driveway: 1 3 5", "Street: 6", "Driveway: 1 3", "Street: 6 5", "Driveway: 1",
-	// 			"Street: 6 5 3", "Driveway: 3", "Street: 6 5", "Driveway: 3 5", "Street: 6", "Driveway: 3 5 6",
-	// 			"Street: "), driveway.remove(1));
-	// 	assertEquals(Arrays.asList("That car is not in the driveway."), driveway.remove(1));
-	// }
+	@Test
+	public void problem6() {
+		// test1.txt:
+		WordCounter wc1 = new WordCounter("res/test1.txt");
+		assertEquals(37, wc1.getNumUniqueWords());
+		assertEquals(50, wc1.getNumWords());
+		ArrayList<String> result = new ArrayList<String>(Arrays.asList("a", "across", "actually", "alice", "and", "at",
+				"before", "either", "feet", "flashed", "for", "had", "her", "hurried", "it", "its", "looked", "mind",
+				"never", "of", "on", "or", "out", "rabbit", "seen", "she", "started", "take", "that", "the", "then",
+				"to", "took", "waistcoatpocket", "watch", "when", "with"));
+		assertEquals(result, wc1.getUniqueWords());
+
+		// test2.txt:
+		WordCounter wc2 = new WordCounter("res/test2.txt");
+		assertEquals(23, wc2.getNumUniqueWords());
+		assertEquals(26, wc2.getNumWords());
+		result = new ArrayList<String>(Arrays.asList("a", "as", "but", "disappointment", "down", "empty", "from",
+				"great", "her", "it", "jar", "labelled", "marmalade", "of", "one", "orange", "passed", "she", "shelves",
+				"the", "to", "took", "was"));
+		assertEquals(result, wc2.getUniqueWords());
+
+		// text3.txt:
+		WordCounter wc3 = new WordCounter("res/test3.txt");
+		assertEquals(28, wc3.getNumUniqueWords());
+		assertEquals(33, wc3.getNumWords());
+		result = new ArrayList<String>(Arrays.asList("12", "again", "alice", "began", "cat", "dinah", "dinahll", "do",
+				"down", "else", "i", "me", "miss", "much", "nothing", "old", "should", "so", "soon", "talking", "the",
+				"there", "think", "to", "tonight", "very", "was", "years"));
+		assertEquals(result, wc3.getUniqueWords());
+	}
+
+
+	@Test
+	public void problem7() {
+		Driveway driveway = new Driveway();
+		assertEquals(Arrays.asList("Driveway: 1", "Street: "), driveway.add(1));
+		assertEquals(Arrays.asList("Driveway: 1 2", "Street: "), driveway.add(2));
+		assertEquals(Arrays.asList("Driveway: 1 2 3", "Street: "), driveway.add(3));
+		assertEquals(Arrays.asList("That car is already in the driveway."), driveway.add(3));
+		assertEquals(Arrays.asList("Driveway: 1 2 3 4", "Street: "), driveway.add(4));
+		assertEquals(Arrays.asList("Driveway: 1 2 3", "Street: 4", "Driveway: 1 2", "Street: 4 3", "Driveway: 1 3",
+				"Street: 4", "Driveway: 1 3 4", "Street: "), driveway.remove(2));
+		assertEquals(Arrays.asList("Driveway: 1 3", "Street: "), driveway.remove(4));
+		assertEquals(Arrays.asList("Driveway: 1 3 5", "Street: "), driveway.add(5));
+		assertEquals(Arrays.asList("Driveway: 1 3 5 6", "Street: "), driveway.add(6));
+		assertEquals(Arrays.asList("Driveway: 1 3 5", "Street: 6", "Driveway: 1 3", "Street: 6 5", "Driveway: 1",
+				"Street: 6 5 3", "Driveway: 3", "Street: 6 5", "Driveway: 3 5", "Street: 6", "Driveway: 3 5 6",
+				"Street: "), driveway.remove(1));
+		assertEquals(Arrays.asList("That car is not in the driveway."), driveway.remove(1));
+	}
 
 
 	// @Test
