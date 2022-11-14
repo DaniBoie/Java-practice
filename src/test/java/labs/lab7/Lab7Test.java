@@ -192,62 +192,62 @@ public class Lab7Test {
 	}
 
 
-	// @Test
-	// public void problem10() {
-	// 	EmergencyRoom er = new EmergencyRoom();
+	@Test
+	public void problem10() {
+		EmergencyRoom er = new EmergencyRoom();
 
-	// 	er.addPatient(Injury.ABDOMINAL_PAIN, "18 year old says stomach hurts");
-	// 	er.addPatient(Injury.BURN, "Person burned hand while cooking dinner");
-	// 	er.addPatient(Injury.CHEST_PAIN, "63 year old has chest pain");
-	// 	er.addPatient(Injury.FRACTURE, "10 year old hurt knee while playing soccer, possible fracture");
-	// 	er.addPatient(Injury.HEMORRHAGE, "23 year old complaining of paper cut");
-	// 	er.addPatient(Injury.OTHER, "UCI student with a hangnail");
+		er.addPatient(Injury.ABDOMINAL_PAIN, "18 year old says stomach hurts");
+		er.addPatient(Injury.BURN, "Person burned hand while cooking dinner");
+		er.addPatient(Injury.CHEST_PAIN, "63 year old has chest pain");
+		er.addPatient(Injury.FRACTURE, "10 year old hurt knee while playing soccer, possible fracture");
+		er.addPatient(Injury.HEMORRHAGE, "23 year old complaining of paper cut");
+		er.addPatient(Injury.OTHER, "UCI student with a hangnail");
 
-	// 	assertEquals(Injury.HEMORRHAGE, er.nextPatient().getInjury());
+		assertEquals(Injury.HEMORRHAGE, er.nextPatient().getInjury());
 
-	// 	Patient p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
+		Patient p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
 
-	// 	p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
+		p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
 
-	// 	p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.FRACTURE) || p.getInjury().equals(Injury.ABDOMINAL_PAIN));
+		p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.FRACTURE) || p.getInjury().equals(Injury.ABDOMINAL_PAIN));
 
-	// 	p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.FRACTURE) || p.getInjury().equals(Injury.ABDOMINAL_PAIN));
+		p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.FRACTURE) || p.getInjury().equals(Injury.ABDOMINAL_PAIN));
 
-	// 	assertEquals(Injury.OTHER, er.nextPatient().getInjury());
+		assertEquals(Injury.OTHER, er.nextPatient().getInjury());
 
-	// 	assertNull(er.nextPatient());
+		assertNull(er.nextPatient());
 
-	// 	er.addPatient(Injury.OTHER, "45 year old complains of a runny nose");
-	// 	er.addPatient(Injury.SEIZURE, "person having a seizure");
-	// 	er.addPatient(Injury.ABDOMINAL_PAIN,
-	// 			"UCI student complains of stomach pain after participating in a hot dog eating contest");
-	// 	er.addPatient(Injury.SEIZURE, "person having a seizure");
+		er.addPatient(Injury.OTHER, "45 year old complains of a runny nose");
+		er.addPatient(Injury.SEIZURE, "person having a seizure");
+		er.addPatient(Injury.ABDOMINAL_PAIN,
+				"UCI student complains of stomach pain after participating in a hot dog eating contest");
+		er.addPatient(Injury.SEIZURE, "person having a seizure");
 
-	// 	assertEquals(Injury.SEIZURE, er.nextPatient().getInjury());
-	// 	assertEquals(Injury.SEIZURE, er.nextPatient().getInjury());
-	// 	assertEquals(Injury.ABDOMINAL_PAIN, er.nextPatient().getInjury());
+		assertEquals(Injury.SEIZURE, er.nextPatient().getInjury());
+		assertEquals(Injury.SEIZURE, er.nextPatient().getInjury());
+		assertEquals(Injury.ABDOMINAL_PAIN, er.nextPatient().getInjury());
 
-	// 	er.addPatient(Injury.FRACTURE, "person says pinky toe hurts, possible fracture");
-	// 	er.addPatient(Injury.CHEST_PAIN, "heart patient complaining of chest pain");
-	// 	er.addPatient(Injury.BURN, "person stayed at the beach too long and forgot sunscreen");
+		er.addPatient(Injury.FRACTURE, "person says pinky toe hurts, possible fracture");
+		er.addPatient(Injury.CHEST_PAIN, "heart patient complaining of chest pain");
+		er.addPatient(Injury.BURN, "person stayed at the beach too long and forgot sunscreen");
 
-	// 	p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
+		p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
 
-	// 	p = er.nextPatient();
-	// 	assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
+		p = er.nextPatient();
+		assertTrue(p.getInjury().equals(Injury.BURN) || p.getInjury().equals(Injury.CHEST_PAIN));
 
-	// 	er.addPatient(Injury.OTHER, "Stubbed toe");
+		er.addPatient(Injury.OTHER, "Stubbed toe");
 
-	// 	assertEquals(Injury.FRACTURE, er.nextPatient().getInjury());
-	// 	assertEquals(Injury.OTHER, er.nextPatient().getInjury());
-	// 	assertEquals(Injury.OTHER, er.nextPatient().getInjury());
-	// 	assertNull(er.nextPatient());
-	// 	assertNull(er.nextPatient());
-	// }
+		assertEquals(Injury.FRACTURE, er.nextPatient().getInjury());
+		assertEquals(Injury.OTHER, er.nextPatient().getInjury());
+		assertEquals(Injury.OTHER, er.nextPatient().getInjury());
+		assertNull(er.nextPatient());
+		assertNull(er.nextPatient());
+	}
 
 }

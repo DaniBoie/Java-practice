@@ -8,7 +8,7 @@ public class EmergencyRoom {
 
 
 	public EmergencyRoom() {
-		// FILL IN
+		patients = new PriorityQueue<Patient>();
 	}
 
 
@@ -19,7 +19,8 @@ public class EmergencyRoom {
 	 * @param description
 	 */
 	public void addPatient(Injury injury, String description) {
-		// FILL IN
+		Patient newPatient = new Patient(injury, description);
+		patients.add(newPatient);
 	}
 
 
@@ -27,6 +28,10 @@ public class EmergencyRoom {
 	 * Gets the next highest priority patient
 	 */
 	public Patient nextPatient() {
-		return null; // FIX ME
+		try {
+			return patients.remove();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }

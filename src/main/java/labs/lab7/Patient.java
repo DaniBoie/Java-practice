@@ -6,27 +6,33 @@ package labs.lab7;
 public class Patient implements Comparable<Patient> {
 
 	// ADD YOUR INSTANCE VARIABLES HERE
+	private Injury injury;
+	private String description;
+	private int priority;
 
 	/**
 	 * Creates a new Patient object with the given injury and description
 	 */
 	public Patient(Injury injury, String description) {
+		this.injury = injury;
+		this.description = description;
+		priority = Injury.getTriageLevel(injury);
 		// FILL IN
 	}
 
 
 	public int getPriority() {
-		return -1; // FIX ME
+		return priority; // FIX ME
 	}
 
 
 	public Injury getInjury() {
-		return null; // FIX ME
+		return injury; // FIX ME
 	}
 
 
 	public String getDescription() {
-		return ""; // FIX ME
+		return description; // FIX ME
 	}
 
 
@@ -35,7 +41,7 @@ public class Patient implements Comparable<Patient> {
 	 */
 	@Override
 	public int compareTo(Patient p) {
-		return -1; // FIX ME
+		return Integer.compare(priority, p.getPriority());
 	}
 	
 	
@@ -45,7 +51,7 @@ public class Patient implements Comparable<Patient> {
 	 */
 	@Override
 	public String toString() {
-		return ""; // FIX ME
+		return "Injury: " + injury + ", Description: " + description; // FIX ME
 	}
 
 }
