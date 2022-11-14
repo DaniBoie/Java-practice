@@ -137,59 +137,59 @@ public class Lab7Test {
 	}
 
 
-	// @Test
-	// public void problems8And9() {
-	// 	// Test Block class:
-	// 	Block myBlock = new Block(5, 10);
-	// 	assertEquals(10, myBlock.getPrice());
-	// 	assertEquals(5, myBlock.getQuantity());
+	@Test
+	public void problems8And9() {
+		// Test Block class:
+		Block myBlock = new Block(5, 10);
+		assertEquals(10, myBlock.getPrice());
+		assertEquals(5, myBlock.getQuantity());
 
-	// 	myBlock.sell(4);
-	// 	assertEquals(1, myBlock.getQuantity());
+		myBlock.sell(4);
+		assertEquals(1, myBlock.getQuantity());
 
-	// 	// Test StockSimulator class
-	// 	StockSimulator mySimulator = new StockSimulator();
+		// Test StockSimulator class
+		StockSimulator mySimulator = new StockSimulator();
 
-	// 	Block myBlock1 = new Block(100, 12);
-	// 	Block myBlock2 = new Block(100, 10);
-	// 	mySimulator.buy(100, 12);
-	// 	mySimulator.buy(100, 10);
-	// 	assertEquals(myBlock1.getPrice(), mySimulator.getBlocks().get(0).getPrice());
-	// 	assertEquals(myBlock1.getQuantity(), mySimulator.getBlocks().get(0).getQuantity());
-	// 	assertEquals(myBlock2.getPrice(), mySimulator.getBlocks().get(1).getPrice());
-	// 	assertEquals(myBlock2.getQuantity(), mySimulator.getBlocks().get(1).getQuantity());
+		Block myBlock1 = new Block(100, 12);
+		Block myBlock2 = new Block(100, 10);
+		mySimulator.buy(100, 12);
+		mySimulator.buy(100, 10);
+		assertEquals(myBlock1.getPrice(), mySimulator.getBlocks().get(0).getPrice());
+		assertEquals(myBlock1.getQuantity(), mySimulator.getBlocks().get(0).getQuantity());
+		assertEquals(myBlock2.getPrice(), mySimulator.getBlocks().get(1).getPrice());
+		assertEquals(myBlock2.getQuantity(), mySimulator.getBlocks().get(1).getQuantity());
 
-	// 	assertEquals(550, mySimulator.sell(150, 15));
-	// 	assertEquals(250, mySimulator.sell(50, 15));
+		assertEquals(550, mySimulator.sell(150, 15));
+		assertEquals(250, mySimulator.sell(50, 15));
 
-	// 	// Test exceptions:
-	// 	Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-	// 		mySimulator.sell(100, 5);
-	// 	});
-	// 	String expectedMessage = "Unable to complete sale";
-	// 	String actualMessage = exception.getMessage();
-	// 	assertTrue(actualMessage.contains(expectedMessage));
+		// Test exceptions:
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+			mySimulator.sell(100, 5);
+		});
+		String expectedMessage = "Unable to complete sale";
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 
-	// 	exception = assertThrows(IllegalArgumentException.class, () -> {
-	// 		mySimulator.sell(20, 1);
-	// 	});
-	// 	actualMessage = exception.getMessage();
-	// 	assertTrue(actualMessage.contains(expectedMessage));
+		exception = assertThrows(IllegalArgumentException.class, () -> {
+			mySimulator.sell(20, 1);
+		});
+		actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 
-	// 	exception = assertThrows(IllegalArgumentException.class, () -> {
-	// 		mySimulator.buy(-9, 5);
-	// 	});
-	// 	expectedMessage = "Unable to complete purchase";
-	// 	actualMessage = exception.getMessage();
-	// 	assertTrue(actualMessage.contains(expectedMessage));
+		exception = assertThrows(IllegalArgumentException.class, () -> {
+			mySimulator.buy(-9, 5);
+		});
+		expectedMessage = "Unable to complete purchase";
+		actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 
-	// 	exception = assertThrows(IllegalArgumentException.class, () -> {
-	// 		mySimulator.buy(9, -5);
-	// 	});
-	// 	expectedMessage = "Unable to complete purchase";
-	// 	actualMessage = exception.getMessage();
-	// 	assertTrue(actualMessage.contains(expectedMessage));
-	// }
+		exception = assertThrows(IllegalArgumentException.class, () -> {
+			mySimulator.buy(9, -5);
+		});
+		expectedMessage = "Unable to complete purchase";
+		actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
+	}
 
 
 	// @Test
