@@ -29,7 +29,7 @@ public class Lab8Test {
     // @Test
     // public void problem2() {
     //     Pair<String, Integer> p = new Pair<>("Lucky Number", 13);
-    //     Pair<Integer, String> q = Main.problem2_swap(p);
+    //     Pair<Integer, String> q = Main.c;
     //     assertEquals(13, q.getFirst().intValue());
     //     assertEquals("Lucky Number", q.getSecond());
 
@@ -40,36 +40,36 @@ public class Lab8Test {
     // }
     
     
-    // @Test
-    // public void problem3() {
-		// String[] words = { "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet",
-		// 		"Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform",
-		// 		"Victor", "Whiskey", "X-Ray", "Yankee", "Zulu" };
-		// BinarySearcher<String> strSearcher = new BinarySearcher<>(words);
-		// assertEquals(13, strSearcher.search("November"));
-		// assertEquals(-1, strSearcher.search("October"));
-		// assertEquals(0, strSearcher.search("Alpha"));
-		// assertEquals(25, strSearcher.search("Zulu"));
+    @Test
+    public void problem3() {
+		String[] words = { "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet",
+				"Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform",
+				"Victor", "Whiskey", "X-Ray", "Yankee", "Zulu" };
+		BinarySearcher<String> strSearcher = new BinarySearcher<>(words);
+		assertEquals(13, strSearcher.search("November"));
+		assertEquals(-1, strSearcher.search("October"));
+		assertEquals(0, strSearcher.search("Alpha"));
+		assertEquals(25, strSearcher.search("Zulu"));
 
-		// Integer[] ints = { 3, 4, 8, 13, 15, 28, 45, 46, 80, 95, 110, 112, 113, 2000, 28938 };
-		// BinarySearcher<Integer> intSearcher = new BinarySearcher<>(ints);
-		// assertEquals(-1, intSearcher.search(-8));
-		// assertEquals(7, intSearcher.search(46));
-		// assertEquals(-1, intSearcher.search(-3));
-		// assertEquals(0, intSearcher.search(3));
-		// assertEquals(1, intSearcher.search(4));
-		// assertEquals(14, intSearcher.search(28938));
-		// assertEquals(13, intSearcher.search(2000));
+		Integer[] ints = { 3, 4, 8, 13, 15, 28, 45, 46, 80, 95, 110, 112, 113, 2000, 28938 };
+		BinarySearcher<Integer> intSearcher = new BinarySearcher<>(ints);
+		assertEquals(-1, intSearcher.search(-8));
+		assertEquals(7, intSearcher.search(46));
+		assertEquals(-1, intSearcher.search(-3));
+		assertEquals(0, intSearcher.search(3));
+		assertEquals(1, intSearcher.search(4));
+		assertEquals(14, intSearcher.search(28938));
+		assertEquals(13, intSearcher.search(2000));
 
-		// Double[] dbls = { -10.22, -9.0, -3.229, 0.0, 4.4, 18.2, 99.003, 101.0, 283.88978, 329.0, 444003.1, 500999.882,
-		// 		278397483.3 };
-		// BinarySearcher<Double> dblSearcher = new BinarySearcher<>(dbls);
-		// assertEquals(-1, dblSearcher.search(4.0));
-		// assertEquals(-1, dblSearcher.search(9.0));
-		// assertEquals(3, dblSearcher.search(0.0));
-		// assertEquals(7, dblSearcher.search(101.0));
-		// assertEquals(8, dblSearcher.search(283.88978));
-    // }
+		Double[] dbls = { -10.22, -9.0, -3.229, 0.0, 4.4, 18.2, 99.003, 101.0, 283.88978, 329.0, 444003.1, 500999.882,
+				278397483.3 };
+		BinarySearcher<Double> dblSearcher = new BinarySearcher<>(dbls);
+		assertEquals(-1, dblSearcher.search(4.0));
+		assertEquals(-1, dblSearcher.search(9.0));
+		assertEquals(3, dblSearcher.search(0.0));
+		assertEquals(7, dblSearcher.search(101.0));
+		assertEquals(8, dblSearcher.search(283.88978));
+    }
     
     
     // @Test

@@ -2,6 +2,7 @@ package labs.lab8;
 
 import java.util.Iterator;
 import java.util.ArrayList;
+import javafx.util.Pair;
 
 public class Main {
 
@@ -38,7 +39,9 @@ public class Main {
 	 * @return		the swapped pair
 	 */
 	// WRITE PROBLEM 2 METHOD HERE
-	
+	// public static <T, S> Pair<T, S> problem2_swap(T) {
+
+	// }
 	
 	/**
 	 * Checks whether a generic list is a palindrome; that is, whether 
