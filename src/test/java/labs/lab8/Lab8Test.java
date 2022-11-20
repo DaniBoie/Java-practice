@@ -26,18 +26,18 @@ public class Lab8Test {
     }
     
     
-    // @Test
-    // public void problem2() {
-    //     Pair<String, Integer> p = new Pair<>("Lucky Number", 13);
-    //     Pair<Integer, String> q = Main.c;
-    //     assertEquals(13, q.getFirst().intValue());
-    //     assertEquals("Lucky Number", q.getSecond());
+    @Test
+    public void problem2() {
+        Pair<String, Integer> p = new Pair<>("Lucky Number", 13);
+        Pair<Integer, String> q = Main.problem2_swap(p);
+        assertEquals(13, q.getFirst().intValue());
+        assertEquals("Lucky Number", q.getSecond());
 
-    //     Pair<Double, Boolean> r = new Pair<>(8.5, false);
-    //     Pair<Boolean, Double> s = Main.problem2_swap(r);
-    //     assertFalse(s.getFirst());
-    //     assertEquals(8.5, s.getSecond().doubleValue(), EPSILON);
-    // }
+        Pair<Double, Boolean> r = new Pair<>(8.5, false);
+        Pair<Boolean, Double> s = Main.problem2_swap(r);
+        assertFalse(s.getFirst());
+        assertEquals(8.5, s.getSecond().doubleValue(), EPSILON);
+    }
     
     
     @Test
@@ -121,13 +121,13 @@ public class Lab8Test {
     }
     
     
-    // @Test
-    // public void problem5() {
-    //     List<String> a = Arrays.asList("apple", "orange", "apple");
-    //     assertTrue(Main.problem5_isPalindrome(a));
-    //     List<Color> b = Arrays.asList(Color.RED, Color.GREEN);
-    //     assertFalse(Main.problem5_isPalindrome(b));
-    //     List<Color> c = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE, Color.GREEN, Color.RED);
-    //     assertTrue(Main.problem5_isPalindrome(c));
-    // }
+    @Test
+    public void problem5() {
+        List<String> a = Arrays.asList("apple", "orange", "apple");
+        assertTrue(Main.problem5_isPalindrome(a));
+        List<Color> b = Arrays.asList(Color.RED, Color.GREEN);
+        assertFalse(Main.problem5_isPalindrome(b));
+        List<Color> c = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE, Color.GREEN, Color.RED);
+        assertTrue(Main.problem5_isPalindrome(c));
+    }
 }

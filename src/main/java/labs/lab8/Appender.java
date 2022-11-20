@@ -1,8 +1,6 @@
 package labs.lab8;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.lang.reflect.Array;
 
 /**
  * A utility class for appending lists/arrays

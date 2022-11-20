@@ -2,8 +2,7 @@ package labs.lab8;
 
 import java.util.Iterator;
 import java.util.ArrayList;
-import javafx.util.Pair;
-
+import java.util.List;
 public class Main {
 
 	/**
@@ -18,7 +17,6 @@ public class Main {
 	 * @return	a String containing iterable's elements (whatever is returned by that 
 	 * element's toString method), each one separated by a comma and a space
 	 */
-	// WRITE PROBLEM 1 METHOD HERE
 	public static <T extends Iterable<E>, E> String problem1_getElements(T iterable) {
 		ArrayList<String> newString = new ArrayList<>();
 		Iterator<E> it = iterable.iterator();
@@ -39,9 +37,9 @@ public class Main {
 	 * @return		the swapped pair
 	 */
 	// WRITE PROBLEM 2 METHOD HERE
-	// public static <T, S> Pair<T, S> problem2_swap(T) {
-
-	// }
+	public static <T, S> Pair<S, T> problem2_swap(Pair<T, S> inputPair) {
+		return new Pair<S, T>(inputPair.getSecond(), inputPair.getFirst());
+	}
 	
 	/**
 	 * Checks whether a generic list is a palindrome; that is, whether 
@@ -53,5 +51,15 @@ public class Main {
 	 * 
 	 * @return	true if it is a palindrome, or false if not
 	 */
-	// WRITE PROBLEM 5 METHOD HERE
+	public static <T> boolean problem5_isPalindrome(List<T> li) {
+		int size = li.size();
+
+			for (int i = 0; i < size/2; i++) {
+				if (li.get(i) != li.get(size - 1 - i)) {
+					return false;
+				}
+			}
+
+		return true;
+	}
 }
