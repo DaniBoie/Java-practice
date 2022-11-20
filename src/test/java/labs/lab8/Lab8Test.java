@@ -72,53 +72,53 @@ public class Lab8Test {
     }
     
     
-    // @Test
-    // public void problem4() {
-		// List<String> a = Arrays.asList("apple", "orange");
-		// List<String> b = Arrays.asList("pear", "banana");
-		// List<String> c = Appender.append(a, b);
-		// assertEquals(Arrays.asList("apple", "orange"), a);
-		// assertEquals(Arrays.asList("pear", "banana"), b);
-		// assertEquals(Arrays.asList("apple", "orange", "pear", "banana"), c);
+    @Test
+    public void problem4() {
+		List<String> a = Arrays.asList("apple", "orange");
+		List<String> b = Arrays.asList("pear", "banana");
+		List<String> c = Appender.append(a, b);
+		assertEquals(Arrays.asList("apple", "orange"), a);
+		assertEquals(Arrays.asList("pear", "banana"), b);
+		assertEquals(Arrays.asList("apple", "orange", "pear", "banana"), c);
 
-		// List<Integer> intList1 = Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0);
-		// List<Integer> intList2 = Arrays.asList(-8, 19, 4, 0, 20);
-		// List<Integer> intList3 = Appender.append(intList1, intList2);
-		// assertEquals(Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0), intList1);
-		// assertEquals(Arrays.asList(-8, 19, 4, 0, 20), intList2);
-		// assertEquals(Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0, -8, 19, 4, 0, 20), intList3);
+		List<Integer> intList1 = Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0);
+		List<Integer> intList2 = Arrays.asList(-8, 19, 4, 0, 20);
+		List<Integer> intList3 = Appender.append(intList1, intList2);
+		assertEquals(Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0), intList1);
+		assertEquals(Arrays.asList(-8, 19, 4, 0, 20), intList2);
+		assertEquals(Arrays.asList(3, 13, 44, 18, 987, -29, -3, 0, -8, 19, 4, 0, 20), intList3);
 
-		// List<Double> dblList1 = Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0);
-		// List<Double> dblList2 = Arrays.asList(-0.0008, 1.9, 4.2, 0.0, 2.0);
-		// List<Double> dblList3 = Appender.append(dblList1, dblList2);
-		// assertEquals(Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0), dblList1);
-		// assertEquals(Arrays.asList(-0.0008, 1.9, 4.2, 0.0, 2.0), dblList2);
-		// assertEquals(Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0, -0.0008, 1.9, 4.2, 0.0, 2.0),
-		// 		dblList3);
+		List<Double> dblList1 = Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0);
+		List<Double> dblList2 = Arrays.asList(-0.0008, 1.9, 4.2, 0.0, 2.0);
+		List<Double> dblList3 = Appender.append(dblList1, dblList2);
+		assertEquals(Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0), dblList1);
+		assertEquals(Arrays.asList(-0.0008, 1.9, 4.2, 0.0, 2.0), dblList2);
+		assertEquals(Arrays.asList(3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0, -0.0008, 1.9, 4.2, 0.0, 2.0),
+				dblList3);
 
-		// String[] d = { "apple", "orange" };
-		// String[] e = { "pear", "banana" };
-		// String[] f = Appender.append(d, e);
-		// assertTrue(Arrays.equals(new String[] { "apple", "orange" }, d));
-		// assertTrue(Arrays.equals(new String[] { "pear", "banana" }, e));
-		// assertTrue(Arrays.equals(new String[] { "apple", "orange", "pear", "banana" }, f));
+		String[] d = { "apple", "orange" };
+		String[] e = { "pear", "banana" };
+		String[] f = Appender.append(d, e);
+		assertTrue(Arrays.equals(new String[] { "apple", "orange" }, d));
+		assertTrue(Arrays.equals(new String[] { "pear", "banana" }, e));
+		assertTrue(Arrays.equals(new String[] { "apple", "orange", "pear", "banana" }, f));
 
-		// Integer[] intArr1 = { 3, 13, 44, 18, 987, -29, -3, 0 };
-		// Integer[] intArr2 = { -8, 19, 4, 0, 20 };
-		// Integer[] intArr3 = Appender.append(intArr1, intArr2);
-		// assertTrue(Arrays.equals(new Integer[] { 3, 13, 44, 18, 987, -29, -3, 0 }, intArr1));
-		// assertTrue(Arrays.equals(new Integer[] { -8, 19, 4, 0, 20 }, intArr2));
-		// assertTrue(Arrays.equals(new Integer[] { 3, 13, 44, 18, 987, -29, -3, 0, -8, 19, 4, 0, 20 }, intArr3));
+		Integer[] intArr1 = { 3, 13, 44, 18, 987, -29, -3, 0 };
+		Integer[] intArr2 = { -8, 19, 4, 0, 20 };
+		Integer[] intArr3 = Appender.append(intArr1, intArr2);
+		assertTrue(Arrays.equals(new Integer[] { 3, 13, 44, 18, 987, -29, -3, 0 }, intArr1));
+		assertTrue(Arrays.equals(new Integer[] { -8, 19, 4, 0, 20 }, intArr2));
+		assertTrue(Arrays.equals(new Integer[] { 3, 13, 44, 18, 987, -29, -3, 0, -8, 19, 4, 0, 20 }, intArr3));
 
-		// Double[] dblArr1 = { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0 };
-		// Double[] dblArr2 = { -0.0008, 1.9, 4.2, 0.0, 2.0 };
-		// Double[] dblArr3 = Appender.append(dblArr1, dblArr2);
-		// assertTrue(Arrays.equals(new Double[] { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0 }, dblArr1));
-		// assertTrue(Arrays.equals(new Double[] { -0.0008, 1.9, 4.2, 0.0, 2.0 }, dblArr2));
-		// assertTrue(Arrays.equals(
-		// 		new Double[] { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0, -0.0008, 1.9, 4.2, 0.0, 2.0 },
-		// 		dblArr3));
-    // }
+		Double[] dblArr1 = { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0 };
+		Double[] dblArr2 = { -0.0008, 1.9, 4.2, 0.0, 2.0 };
+		Double[] dblArr3 = Appender.append(dblArr1, dblArr2);
+		assertTrue(Arrays.equals(new Double[] { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0 }, dblArr1));
+		assertTrue(Arrays.equals(new Double[] { -0.0008, 1.9, 4.2, 0.0, 2.0 }, dblArr2));
+		assertTrue(Arrays.equals(
+				new Double[] { 3.2, 13.3, 44.4, 18.0, 987.9385, -29.0, -0.3, 0.0, -0.0008, 1.9, 4.2, 0.0, 2.0 },
+				dblArr3));
+    }
     
     
     // @Test
