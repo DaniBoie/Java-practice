@@ -142,7 +142,7 @@ public class Lab10Test {
 	@Test
 	public void problem4() {
 		assertEquals(0, InstagrammersStats.problem4_countIGersInCategory(igListBLANK.stream(), "Lifestyle"));
-		assertEquals(2, InstagrammersStats.problem4_countIGersInCategory(igList4.stream(), "Lifestyle"));
+			assertEquals(2, InstagrammersStats.problem4_countIGersInCategory(igList4.stream(), "Lifestyle"));
 		assertEquals(2, InstagrammersStats.problem4_countIGersInCategory(igList4.stream(), "lifestyle"));
 		assertEquals(2, InstagrammersStats.problem4_countIGersInCategory(igList4.stream(), "LIFEStYLE")); 
 		assertEquals(1, InstagrammersStats.problem4_countIGersInCategory(igList4.stream(), "fitness"));

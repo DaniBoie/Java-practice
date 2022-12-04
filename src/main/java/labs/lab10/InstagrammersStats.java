@@ -1,12 +1,15 @@
 package labs.lab10;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Set;
 
 /**
  * A class for performing various analyses on a set of Instagrammers data
@@ -79,7 +82,23 @@ public class InstagrammersStats {
 	 * separated by ", "
 	 */
 	public static String problem3_getAllCountries(Stream<Instagrammer> instagrammers) {
-		return ""; // FIX ME
+
+		// Get unique countries
+		Set<String> countries = instagrammers
+			.map(c -> c.getCountry())
+			.collect(Collectors.toSet());
+
+		// Sort them lexographically
+		String[] list = {};
+		list = countries.toArray(list);
+		Arrays.sort(list);
+
+		// Remove any empty String in the list.
+		ArrayList<String> list2 = new ArrayList<>();
+		Collections.addAll(list2, list);
+		list2.remove("");
+
+		return String.join(", ", list2);
 	}
 	
 	
@@ -93,7 +112,12 @@ public class InstagrammersStats {
 	 * @return	number of Instagrammers in a category that contains the given category String (case-insensitive)
 	 */
 	public static long problem4_countIGersInCategory(Stream<Instagrammer> instagrammers, String category) {
-		return -1; // FIX ME
+
+		long number = instagrammers
+			.filter(i -> i.getCategory().toLowerCase().contains(category.toLowerCase()))
+			.count();
+
+		return number;
 	}
 	
 	
@@ -110,7 +134,39 @@ public class InstagrammersStats {
 	 * @return	a mapping of country to average Instagrammer rank in that country
 	 */
 	public static Map<String, Double> problem5_getAvgRankPerCountry(Stream<Instagrammer> instagrammers) {
-		return null; // FIX ME
+
+		Map<String, Double> countryMap = new HashMap<>();
+		Map<String, Integer> itemMap = new HashMap<>();
+
+		instagrammers
+			.forEach(i -> {
+				String country = i.getCountry();
+				int rank = i.getRank();
+
+				if (countryMap.containsKey(country)) {
+					// update total rank in countryMap
+					double currentRank = countryMap.get(country);
+					currentRank += rank;
+					countryMap.put(country, currentRank);
+
+					// update item total in itemMap
+					int currentItems = itemMap.get(country);
+					currentItems += 1;
+					itemMap.put(country, currentItems);
+				} else {
+					countryMap.put(country, (double) rank);
+					itemMap.put(country, 1);
+				}
+			});
+
+		countryMap.forEach((country, rank) -> {
+			double totalRank = countryMap.get(country);
+			int itemNumber = itemMap.get(country);
+			
+			countryMap.put(country, totalRank/itemNumber);
+		});
+
+		return countryMap;
 	}
 	
 	
@@ -124,7 +180,51 @@ public class InstagrammersStats {
 	 * @return	a list of all categories, ordered from most frequent to least frequent
 	 */
 	public static List<String> problem6_getCategories(Stream<Instagrammer> instagrammers) {
-		return null; // FIX ME
+
+		class Pair<T, S> {
+			private T first;
+			private S second;
+
+			public Pair(T first, S second) {
+				this.first = first;
+				this.second = second;
+			}
+		}
+
+		Map<String, Integer> categoryMap = new HashMap<>();
+
+		// From stream count occurances of each category
+		instagrammers
+			.forEach(i -> {
+				String category = i.getCategory();
+					if (categoryMap.containsKey(category)) {
+						int frequency = categoryMap.get(category);
+						categoryMap.put(category, frequency + 1);
+					} else {
+						categoryMap.put(category, 1);
+					}
+			});
+
+		// Create a list of pairs to sort through
+		ArrayList<Pair<String, Integer>> result = new ArrayList<>();
+		categoryMap.forEach((category, frequency) -> {
+			Pair<String, Integer> sortPair = new Pair<>(category, frequency);
+			result.add(sortPair);
+		});
+
+		// sort lexographically
+		result.sort((s, t) -> s.first.compareTo(t.first));
+		// sort by frequency
+		result.sort((s, t) -> t.second.compareTo(s.second));
+
+		// return variable
+		ArrayList<String> finalResult = new ArrayList<>();
+
+		for (Pair<String, Integer> category : result) {
+			finalResult.add(category.first);
+		}
+
+		return finalResult;
 	}
 	
 	
@@ -143,7 +243,59 @@ public class InstagrammersStats {
 	 * @return	a list of the top n countries
 	 */
 	public static List<String> problem7_getTopNCountries(Stream<Instagrammer> instagrammers, int n) {
-		return null; // FIX ME
+
+		class Pair<T, S> {
+			private T first;
+			private S second;
+
+			public Pair(T first, S second) {
+				this.first = first;
+				this.second = second;
+			}
+		}
+
+		Map<String, Integer>	countryMap = new HashMap<>();
+
+		// From stream count occurances of each category
+		instagrammers
+				.forEach(i -> {
+					String country = i.getCountry();
+					if (countryMap.containsKey(country)) {
+						int frequency =	countryMap.get(country);
+						countryMap.put(country, frequency + 1);
+					} else {
+						countryMap.put(country, 1);
+					}
+				});
+
+		// Create a list of pairs to sort through
+		ArrayList<Pair<String, Integer>> result = new ArrayList<>();
+		countryMap.forEach((country, frequency) -> {
+			if (!country.equals("")) {
+				Pair<String, Integer> sortPair = new Pair<>(country, frequency);
+				result.add(sortPair);
+			}
+		});
+
+		// sort lexographically
+		result.sort((s, t) -> s.first.compareTo(t.first));
+		// sort by frequency
+		result.sort((s, t) -> t.second.compareTo(s.second));
+
+		// return variable
+		ArrayList<String> finalResult = new ArrayList<>();
+
+
+		if (n > result.size()) {
+			n = result.size();
+		}
+
+		for (int i = 0; i < n; i++) {
+			String country = result.get(i).first;
+			finalResult.add(country);
+		}
+
+		return finalResult;
 	}
 	
 	
@@ -156,9 +308,15 @@ public class InstagrammersStats {
 	 * @param	min				min engagement
 	 * @param	max				max engagement
 	 */
-	public static String problem8_getAllIGersInEngagementRange(Stream<Instagrammer> instagrammers, 
-			int min, int max) {
-		return ""; // FIX ME
+	public static String problem8_getAllIGersInEngagementRange(Stream<Instagrammer> instagrammers, int min, int max) {
+		
+		List<String> returnVar = instagrammers
+			.filter(i -> i.getEngagement() >= min && i.getEngagement() <= max)
+			.sorted((s, t) -> s.compareTo(t))
+			.map(i -> i.getName())
+			.collect(Collectors.toList());
+
+		return String.join(" ", returnVar);
 	}
 	
 	
@@ -174,9 +332,12 @@ public class InstagrammersStats {
 	 * 
 	 * @return	first Instagrammer found whose name contains the string (case-sensitive)
 	 */
-	public static Optional<Instagrammer> problem9_getFirstIGerContainingString(Stream<Instagrammer> instagrammers, 
-			String str) {
-		return null; // FIX ME
+	public static Optional<Instagrammer> problem9_getFirstIGerContainingString(Stream<Instagrammer> instagrammers, String str) {
+
+		return instagrammers
+			.filter(i -> i.getName().contains(str))
+			.findFirst();
+
 	}
 	
 	
@@ -191,8 +352,15 @@ public class InstagrammersStats {
 	 * 
 	 * @return	the number of Instagrammers in the stream
 	 */
-	public static long problem10_countInstagrammers(Stream<Instagrammer> instagrammers, 
-			boolean distinct) {
-		return -1; // FIX ME
+	public static long problem10_countInstagrammers(Stream<Instagrammer> instagrammers, boolean distinct) {
+
+		if (distinct) {
+			return instagrammers
+				.distinct()
+				.count();
+		} else {
+			return instagrammers
+				.count();
+		}
 	}
 }
